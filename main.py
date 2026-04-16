@@ -7,7 +7,6 @@ MODEL_SIZE   = "small"        # tiny | base | small | medium | large
 AUDIO_FOLDER = "."            # folder where your audio files live
 OUTPUT_FOLDER = "transcripts" # folder where .txt files will be saved
 AUDIO_EXTENSIONS = ("*.m4a", "*.mp3", "*.wav", "*.mp4", "*.ogg", "*.flac")
-# ─────────────────────────────────────────────────────────────────
 
 # Create output folder if it doesn't exist
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
@@ -36,7 +35,7 @@ for i, audio_path in enumerate(sorted(audio_files), start=1):
     print(f"[{i}/{len(audio_files)}] Transcribing: {filename}")
 
     try:
-        # Transcribe — language=None lets Whisper auto-detect
+        # Transcribe language=None lets Whisper auto-detect
         # English & Swahili segments will both be captured
         result = model.transcribe(
             audio_path,
